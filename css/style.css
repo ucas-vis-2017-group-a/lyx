@@ -6,23 +6,40 @@ body {
 	  font-family: "helvetica";
 	  font-size: 20px;
 }
-.main {
-	  position : relative;
+#main {
+	  position : absolute;
 	  width : 85%;
 	  height : 100%;
-	  float: right;
+	  top: 0px;
+	  right: 0px;
 	  background-color : rgba(42, 41, 61, 0.933);
 }
-.left {
+#left {
 	position : absolute;
 	width: 14%;
     height: 100%;
-    float: left;
+	top: 0px;
+	left: 0px;
     text-align: left;
     border: #969696 solid thin;
     padding: 5px;
 	background-color : rgba(162, 157, 229, 0.933);
 	color : rgb(24, 25, 26);
+}
+#foot {
+	position : absolute;
+	height : 20%;
+	bottom: 0px;
+	right: 0px;
+	left: 0px;
+	background-color : rgba(189, 188, 207, 0.933);
+}
+
+#foot .section-guide {
+	float: left;
+	height: 80%;
+	background-color: white;
+	color: rgba(162, 157, 229, 0.933);
 }
 .slider { 
 	  position : absolute;
@@ -36,6 +53,7 @@ body {
 }
 
 .section-guide {
+	max-width: 150px;
 	border-radius: 4px;
 	background-color: #f36239;
 	border: none;
@@ -44,7 +62,7 @@ body {
 	font-size: 100%;
 	width: 100%;
 	padding: 15px;
-	margin-bottom: 10px;
+	margin: 10px 10px 5px 10px;
 	transition: all 0.5s;
 	cursor: pointer;
 }

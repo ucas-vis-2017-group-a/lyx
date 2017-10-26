@@ -1,10 +1,5 @@
-var classes = ["main", "left"];
-d3.selectAll("div")
-	.each(function (d, i) {
-		d3.select(this).attr("class", classes[i]);
-	});
 
-var sections = ["基站分布", "基站迁移", "短信词云"];
+var new_section = ["基站分布", "基站迁移", "短信词云"];
 var left = d3.select(".left"); // returns the first class left element.
 for (i = 0; i < sections.length; i++) {
 	left.append("p").attr("class", "section-guide").text(sections[i]);
@@ -23,7 +18,7 @@ var newData = function() {
 };
 
 function render() {
-    var selection = d3.select(".main")
+    var selection = d3.select("#main")
     .selectAll("div")
     .data(newData);
 
