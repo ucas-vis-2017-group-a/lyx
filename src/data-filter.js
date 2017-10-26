@@ -46,21 +46,19 @@ function render(data, category) {
 
 render(data);
 
-function select(category) {
+function select_cat(category) {
     render(data, category);
     console.log("clicked " + category);
 }
 
-document.addEventListener('DOMContentLoaded',
-    function () {
-        var buttons = document.getElementsByClassName("section-guide");
-        console.log(buttons.length);
-        for (var i = 0; i < buttons.length; i++) { // no click but select
-            if (buttons[i].innerText == sections[3]) {
-                buttons[i].addEventListener("click", select(""));
-                continue;
-            }
-            buttons[i].addEventListener("click", select(buttons[i].innerText));
-            console.log(buttons[i]);
-        }
-    });
+// commented because the DOM has already loaded when this js is injected, listener is useless
+//document.addEventListener('DOMContentLoaded',
+//    function () {
+        var left = d3.select("#left");
+        var guide_sects = left.selectAll(".section-guide")
+            .each(function (d, i) {
+                d3.select(this).on("click", function () {
+                    select_cat(d3.select(this).select("span").text());
+                });
+            });
+//    });

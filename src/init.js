@@ -19,3 +19,32 @@ for (var i = 0; i < foot_sects.length; i++) {
     var span = button.append("span").text(foot_sects[i]);
     button.attr("class", "section-guide");
 }
+
+document.addEventListener("DOMContentLoaded",
+    function () {
+        var footer = d3.select("#foot");
+        var learn_sects = footer.selectAll(".section-guide")
+            .each(function (d, i) {
+                var filename = d3.select(this).select("span").text();
+                d3.select(this).on("click", function () {
+                    remove_injected();
+                    inject(filename);
+                });
+            })
+    });
+
+function inject(filename) {
+    script_path = "src/" + filename.replace(/ /g, "-") + ".js";
+    var new_script = d3.select("body").append("script").attr("src", script_path);
+    console.log("injected: " + script_path);
+}
+
+function remove_injected() {
+    // remove failed
+    var injected = d3.selectAll("script");
+    console.log(injected.length);//undefined
+    if (injected.length > 1) {
+        var removed = injected.remove(1); 
+        console.log("removed: " + removed.attr("src"));
+    }
+}
