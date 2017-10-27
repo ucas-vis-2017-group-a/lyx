@@ -1,8 +1,3 @@
-var ids = ["main", "left", "foot"];
-d3.selectAll("div")
-    .each(function (d, i) {
-        d3.select(this).attr("id", ids[i]);
-    });
 
 var sections = ["基站分布", "基站迁移", "短信词云", "回到主页"];
 var left = d3.select("#left"); // returns the first class left element.
@@ -40,6 +35,9 @@ function inject(filename) {
 }
 
 function remove_injected() {
+    // add animation to the main part before all things (data, javscript injections) are ready
+    // , like a 旋转的圈圈.
+    // should also remove the binded listeners
     // remove failed
     var injected = d3.selectAll("script");
     console.log(injected.length);//undefined

@@ -41,16 +41,6 @@ body {
 	background-color: white;
 	color: rgba(162, 157, 229, 0.933);
 }
-.slider { 
-	  position : absolute;
-	  bottom : 0;
-	  right : 2px;
-	  width : 300px;
-	  height : 16px;
-	  cursor : pointer;
-	  border-radius : 8px 0 0 0;
-	  background-color : rgb(143, 141, 141);
-}
 
 .section-guide {
 	max-width: 150px;
